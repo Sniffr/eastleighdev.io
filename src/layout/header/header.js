@@ -100,7 +100,7 @@ class Header extends Component {
                             <Headertop />
                             <Headerlogo />
                             <div id="header-wrap" className={`${(visible) ? "shadow-sm fixed-header " : "shadow-sm"}`} >
-                                <Container>
+                                <>
                                     <Row>
                                         <Col>
                                             <Navbar className="navbar-expand-lg navbar-light position-static">
@@ -196,7 +196,7 @@ class Header extends Component {
                                             </Navbar>
                                         </Col>
                                     </Row>
-                                </Container>
+                                </>
                             </div>
                         </header>
                         <Modal isOpen={this.state.cartview} toggle={this.cartview} className="cart-modal">

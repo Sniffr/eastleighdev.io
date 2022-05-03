@@ -9,8 +9,8 @@ class Headerlogo extends Component {
     }
     render() {
         return (
-            <div className="py-md-3 py-2">
-                <Container>
+            <div className="row">
+                <div className='col-md-12 col-md-offset-2'>
                     <Row className="align-items-center">
                         <Col md={6} className="d-none d-md-flex align-items-center">
                             <Link className="navbar-brand logo d-none d-lg-block" to="/">
@@ -38,7 +38,7 @@ class Headerlogo extends Component {
                             </div>
                         </Col>
                     </Row>
-                </Container>
+                </div>
             </div>
 
         );
