@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {  Button, Modal, ModalHeader, ModalBody, Row, Col } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, Row, Col } from 'reactstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import OwlCarousel from 'react-owl-carousel';
 import { Link } from 'react-router-dom';
 import Productlist from '../../api/product';
+import { MerchantName } from '../merchant';
 
 window.fn = OwlCarousel;
 
@@ -118,11 +119,12 @@ class Ourproduct2 extends Component {
                         <OwlCarousel
                             className="owl-carousel no-pb owl-2"
                             {...this.state.options}
-                            navText={["<span class='la la-angle-left'><span></span></span>","<span class='la la-angle-right'><span></span></span>"]}
+                            navText={["<span class='la la-angle-left'><span></span></span>", "<span class='la la-angle-right'><span></span></span>"]}
                         >
                             {Productlist.filter(product => product.rating == 5).map((productdata, index) => (
                                 (index < 6) ?
                                     <div className="item">
+                                        <MerchantName />
                                         <div className="card product-card">
                                             {!this.WishlistItems(productdata.id) ?
                                                 <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>

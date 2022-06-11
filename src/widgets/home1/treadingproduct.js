@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { Row, Col, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Productlist from '../../api/product';
+import { MerchantName } from '../merchant';
 
 class Treadingproduct extends Component {
     constructor(props) {
@@ -98,6 +99,7 @@ class Treadingproduct extends Component {
                     {Productlist.filter(productdata => productdata.stock > 3).map((productdata, index) => (
                         (index < 4) ?
                             <Col xl={3} lg={4} md={6}>
+                                <MerchantName />
                                 <div className="card product-card">
                                     {!this.WishlistItems(productdata.id) ?
                                         <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import { Row, Col, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Row, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Productlist from '../../api/product';
 import OwlCarousel from 'react-owl-carousel';
+import { MerchantName } from '../merchant';
 window.fn = OwlCarousel;
 
 class Specialproduct extends Component {
@@ -118,6 +119,7 @@ class Specialproduct extends Component {
                     {Productlist.map((productdata, index) =>
                         (index >= 9 && index < 14) ?
                             <div className="item">
+                                <MerchantName />
                                 <div className="card product-card">
                                     {!this.WishlistItems(productdata.id) ?
                                         <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>

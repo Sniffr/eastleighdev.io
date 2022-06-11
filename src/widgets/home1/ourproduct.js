@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import OwlCarousel from 'react-owl-carousel';
 import { Link } from 'react-router-dom';
 import Productlist from '../../api/product';
+import { MerchantName } from '../merchant';
 
 window.fn = OwlCarousel;
 
@@ -138,29 +139,29 @@ class Ourproduct extends Component {
                             {/* Nav tabs */}
                             <Nav tabs className="d-inline-block justify-content-md-end" id="nav-tab" role="tablist">
                                 <NavItem>
-                                        <NavLink
-                                            className={classnames({ active: this.state.activeTab === '1' })}
-                                            onClick={() => { this.toggle('1'); }}
-                                        >
-                                            Top Rated
+                                    <NavLink
+                                        className={classnames({ active: this.state.activeTab === '1' })}
+                                        onClick={() => { this.toggle('1'); }}
+                                    >
+                                        Top Rated
                                     </NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink
-                                            className={classnames({ active: this.state.activeTab === '2' })}
-                                            onClick={() => { this.toggle('2'); }}
-                                        >
-                                            New Product
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink
+                                        className={classnames({ active: this.state.activeTab === '2' })}
+                                        onClick={() => { this.toggle('2'); }}
+                                    >
+                                        New Product
                                     </NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink
-                                            className={classnames({ active: this.state.activeTab === '3' })}
-                                            onClick={() => { this.toggle('3'); }}
-                                        >
-                                            Best Seller
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink
+                                        className={classnames({ active: this.state.activeTab === '3' })}
+                                        onClick={() => { this.toggle('3'); }}
+                                    >
+                                        Best Seller
                                     </NavLink>
-                                    </NavItem>
+                                </NavItem>
                             </Nav>
                         </div>
                     </Row>
@@ -173,12 +174,13 @@ class Ourproduct extends Component {
                                         <OwlCarousel
                                             className="owl-carousel no-pb owl-2"
                                             {...this.state.options}
-                                            navText={["<span class='la la-angle-left'><span></span></span>","<span class='la la-angle-right'><span></span></span>"]}
-                                            
+                                            navText={["<span class='la la-angle-left'><span></span></span>", "<span class='la la-angle-right'><span></span></span>"]}
+
                                         >
                                             {Productlist.filter(product => product.rating == 5).map((productdata, index) => (
                                                 (index < 6) ?
                                                     <div className="item" key={index}>
+                                                        <MerchantName />
                                                         <div className="card product-card">
                                                             {!this.WishlistItems(productdata.id) ?
                                                                 <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>
@@ -225,12 +227,13 @@ class Ourproduct extends Component {
                                         <OwlCarousel
                                             className="owl-carousel no-pb owl-2"
                                             {...this.state.options}
-                                            navText={["<span class='la la-angle-left'><span></span></span>","<span class='la la-angle-right'><span></span></span>"]}
-                                        
+                                            navText={["<span class='la la-angle-left'><span></span></span>", "<span class='la la-angle-right'><span></span></span>"]}
+
                                         >
                                             {Productlist.map((productdata, index) => (
                                                 (index > 3 && index < 9) ?
                                                     <div className="item" key={index}>
+                                                        <MerchantName />
                                                         <div className="card product-card">
                                                             {!this.WishlistItems(productdata.id) ?
                                                                 <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>
@@ -277,13 +280,14 @@ class Ourproduct extends Component {
                                         <OwlCarousel
                                             className="owl-carousel no-pb owl-2"
                                             {...this.state.options}
-                                            navText={["<span class='la la-angle-left'><span></span></span>","<span class='la la-angle-right'><span></span></span>"]}
-                                        
+                                            navText={["<span class='la la-angle-left'><span></span></span>", "<span class='la la-angle-right'><span></span></span>"]}
+
                                         >
                                             {Productlist.map((productdata, index) => (
                                                 (index > 2 && index < 7) ?
                                                     <div className="item" key={index}>
                                                         <div className="card product-card">
+                                                            <MerchantName />
                                                             {!this.WishlistItems(productdata.id) ?
                                                                 <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>
                                                                 :

@@ -3,6 +3,7 @@ import { Row, Col, Container } from 'reactstrap';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, UncontrolledTooltip } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import Merchant, { MerchantName } from '../merchant';
 
 class Listview extends Component {
     constructor(props) {
@@ -148,6 +149,7 @@ class Listview extends Component {
                     </div>
                     :
                     <div className="col-lg-4 col-md-6">
+                        <MerchantName />
                         <div className="card product-card">
                             {!this.WishlistItems(productdata.id) ?
                                 <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>
@@ -250,12 +252,12 @@ class Listview extends Component {
                                             <Link to="/wishlist" className="btn btn-animated btn-dark" ><i className="lar la-heart mr-1" />View Wishlist </Link>
                                         }
                                         {!this.CartItems(viewproduct.id) ?
-                                            <Link to="#" onClick={() => this.Productaddcart(viewproduct.id, viewproduct.name, viewproduct.pictures[0], 1, viewproduct.salePrice, "In Stock")}  className="btn btn-primary btn-animated mr-sm-4 mb-3 mb-sm-0" rel="nofollow" ><i className="las la-shopping-cart mr-1" />Add To Cart</Link>
+                                            <Link to="#" onClick={() => this.Productaddcart(viewproduct.id, viewproduct.name, viewproduct.pictures[0], 1, viewproduct.salePrice, "In Stock")} className="btn btn-primary btn-animated mr-sm-4 mb-3 mb-sm-0" rel="nofollow" ><i className="las la-shopping-cart mr-1" />Add To Cart</Link>
                                             :
-                                            <Link to="/cart"  className="btn btn-primary btn-animated mr-sm-4 mb-3 mb-sm-0" rel="nofollow" id="viewcart1"><i className="las la-shopping-cart mr-1" />View Cart</Link>
+                                            <Link to="/cart" className="btn btn-primary btn-animated mr-sm-4 mb-3 mb-sm-0" rel="nofollow" id="viewcart1"><i className="las la-shopping-cart mr-1" />View Cart</Link>
 
                                         }
-                                    
+
                                     </div>
                                     <div className="d-sm-flex align-items-center border-top pt-4 mt-5">
                                         <h6 className="mb-sm-0 mr-sm-4">Share It:</h6>

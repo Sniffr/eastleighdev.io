@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import OwlCarousel from 'react-owl-carousel';
 import { Link } from 'react-router-dom';
 import Productlist from '../../api/product';
+import { MerchantName } from '../merchant';
 
 window.fn = OwlCarousel;
 
@@ -159,6 +160,7 @@ class Ourproduct extends Component {
                                     {Productlist.filter(product => product.rating == 5).map((productdata, index) => (
                                       (index > 16 && index <= 22) ?
                                             <div className="col-lg-4 col-md-6">
+                                                <MerchantName />
                                                 <div className="card product-card">
                                                     {!this.WishlistItems(productdata.id) ?
                                                         <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>
@@ -206,6 +208,7 @@ class Ourproduct extends Component {
                                     {Productlist.map((productdata, index) => (
                                         (index >= 18 && index <= 24) ?
                                             <div className="col-lg-4 col-md-6">
+                                                <MerchantName />
                                                 <div className="card product-card">
                                                     {!this.WishlistItems(productdata.id) ?
                                                         <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>
@@ -254,6 +257,7 @@ class Ourproduct extends Component {
                                     {Productlist.map((productdata, index) => (
                                      (index > 17 && index <= 23) ?
                                             <div className="col-lg-4 col-md-6">
+                                                <MerchantName />
                                                 <div className="card product-card">
                                                     {!this.WishlistItems(productdata.id) ?
                                                         <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>

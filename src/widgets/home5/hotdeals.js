@@ -4,6 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { Row, Col, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Productlist from '../../api/product';
 import OwlCarousel from 'react-owl-carousel';
+import { MerchantName } from '../merchant';
 window.fn = OwlCarousel;
 
 class HotDealsProduct extends Component {
@@ -120,6 +121,7 @@ class HotDealsProduct extends Component {
                     {Productlist.map((productdata, index) =>
                         (index >= 19 && index < 23) ?
                             <div className="item">
+                                <MerchantName />
                                 <div className="card product-card">
                                     {!this.WishlistItems(productdata.id) ?
                                         <Link to="#" onClick={() => this.Productaddwishlist(productdata.id, productdata.name, productdata.pictures[0], 1, productdata.salePrice, "In Stock")} className="btn-wishlist btn-sm" id="addtowish"><i className="lar la-heart" /></Link>

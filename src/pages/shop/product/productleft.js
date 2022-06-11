@@ -17,6 +17,7 @@ import main14 from "../../../assets/images/product/main/14.jpg";
 
 
 import { ToastContainer, toast } from 'react-toastify';
+import { MerchantName } from '../../../widgets/merchant';
 window.fn = OwlCarousel;
 class productleft extends Component {
   constructor(props) {
@@ -485,6 +486,7 @@ class productleft extends Component {
                     {...this.state.options}
                   >
                     <div className="item">
+                      <MerchantName />
                       <div className="card product-card">
                         <button className="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i className="lar la-heart" />
                         </button>
@@ -515,6 +517,7 @@ class productleft extends Component {
                       </div>
                     </div>
                     <div className="item">
+                      <MerchantName />
                       <div className="card product-card">
                         <button className="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i className="lar la-heart" />
                         </button>
@@ -545,6 +548,7 @@ class productleft extends Component {
                       </div>
                     </div>
                     <div className="item">
+                      <MerchantName />
                       <div className="card product-card">
                         <button className="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i className="lar la-heart" />
                         </button>
@@ -575,6 +579,7 @@ class productleft extends Component {
                       </div>
                     </div>
                     <div className="item">
+                      <MerchantName />
                       <div className="card product-card">
                         <button className="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i className="lar la-heart" />
                         </button>
