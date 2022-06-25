@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Row, Col, Container } from 'reactstrap';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, UncontrolledTooltip } from 'reactstrap';
+import { Row, Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import Merchant, { MerchantName } from '../merchant';
+import { MerchantName } from '../merchant';
 
 class Listview extends Component {
     constructor(props) {
@@ -29,14 +28,14 @@ class Listview extends Component {
     Productaddcart(ProductID, ProductName, ProductImage, Qty, Rate, StockStatus) {
         var Cart = JSON.parse(localStorage.getItem("CartProduct"));
         if (Cart == null)
-            Cart = new Array();
+            Cart = [];
         let Productadd = Cart.find(product => product.ProductID === ProductID);
         if (Productadd == null) {
             Cart.push({ ProductID: ProductID, ProductName: ProductName, ProductImage: ProductImage, Qty: Qty, Rate: Rate, StockStatus: StockStatus });
             localStorage.removeItem("CartProduct");
             localStorage.setItem("CartProduct", JSON.stringify(Cart));
             var flag = 0;
-            if (flag == 0) {
+            if (flag === 0) {
                 toast.success("Item Added to Cart");
                 flag = 1;
             }
@@ -48,7 +47,7 @@ class Listview extends Component {
     Productaddwishlist(ProductID, ProductName, ProductImage, Qty, Rate, StockStatus) {
         var Cart = JSON.parse(localStorage.getItem("WishlistProduct"));
         if (Cart == null)
-            Cart = new Array();
+            Cart = [];
 
         let Productadd = Cart.find(product => product.ProductID === ProductID);
         if (Productadd == null) {
@@ -97,7 +96,7 @@ class Listview extends Component {
         return (
             <>
                 <ToastContainer autoClose={900} />
-                {(layout == 'Listing') ?
+                {(layout === 'Listing') ?
                     <div className="card product-card product-list mb-5">
                         <Row className="align-items-center">
                             <div className="col-lg-4 col-md-5">

@@ -57,7 +57,8 @@ export class MerchantName extends Component {
     }
     render() {
         return (
-            <div className="merchantName text-center text-secondary"> {this.state.merchantName}</div>
+            // <div className="merchantName text-center text-secondary"> {this.state.merchantName}</div>
+            <></>
         );
     }
 }

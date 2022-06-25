@@ -29,12 +29,13 @@ class Header extends Component {
         this.state = {
             isOpen: false,
             cartview: false,
-            loader: true
+            loader: true,
+            cartSize: 0,
         }
         this.cartview = this.cartview.bind(this)
         this.GetCartItems = this.GetCartItems.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
-        this.toggle = this.toggle.bind(this)
+        this.toggle = this.toggle.bind(this);
     }
     componentDidMount() {
         window.scrollTo(0, 0);
@@ -87,6 +88,7 @@ class Header extends Component {
     }
     render() {
         const { visible } = this.state;
+        let cartSize = this.state.cartSize;
         if (this.state.loader == true) {
             setTimeout(function () {
                 this.setState({ loader: false });
@@ -200,7 +202,7 @@ class Header extends Component {
                             </div>
                         </header>
                         <Modal isOpen={this.state.cartview} toggle={this.cartview} className="cart-modal">
-                            <ModalHeader toggle={this.cartview}>Your Cart  ({this.GetCartItems().length})</ModalHeader>
+                            <ModalHeader toggle={this.cartview}>Your Cart  ({cartSize})</ModalHeader>
                             <ModalBody>
                                 {(this.GetCartItems() != null && this.GetCartItems().length > 0) ?
                                     <>
